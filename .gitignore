@@ -1,3 +1,7 @@
+src/
+*.log
+.env
+
 ### Git ###
 !.gitkeep
 

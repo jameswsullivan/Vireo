@@ -1,0 +1,45 @@
+name: dissertation
+
+services:
+  vireo:
+    build:
+      context: .
+      dockerfile: vireo.dockerfile
+      args:
+        PLAY_FRAMEWORK_PATH: ${PLAY_FRAMEWORK_PATH}
+        VIREO_INSTALLATION_PATH: ${VIREO_INSTALLATION_PATH}
+    image: dissertation-vireo:1.0.0
+    container_name: dissertation-vireo
+    hostname: dissertation-vireo
+    networks:
+      - vireo
+    ports:
+      - 80:80
+      - 9000:9000
+    depends_on:
+      - db
+    environment:
+      PATH: "$PATH:${PLAY_FRAMEWORK_PATH}"
+  db:
+    build:
+      context: .
+      dockerfile: db.dockerfile    
+    image: dissertation-db:1.0.0
+    container_name: dissertation-db
+    hostname: dissertation-db
+    networks:
+      - vireo
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: 1234
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+networks:
+  vireo:
+
+volumes:
+  pgdata:
+    driver: local
