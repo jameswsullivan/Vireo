@@ -14,7 +14,7 @@ ENV PATH="$PATH:${PLAY_FRAMEWORK_PATH}"
 
 COPY ./vireo /vireo
 COPY ./play /play
-COPY ./entrypoint.sh /usr/bin/entrypoint.sh
+COPY ./vireo.entrypoint.sh /usr/bin/entrypoint.sh
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \

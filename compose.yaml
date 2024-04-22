@@ -1,6 +1,20 @@
 name: dissertation
 
 services:
+  apache:
+    build:
+      context: .
+      dockerfile: apache.dockerfile
+    image: dissertation-apache:1.0.0
+    container_name: dissertation-apache
+    hostname: dissertation-apache
+    networks:
+      - vireo
+    ports:
+      - 80:80
+    depends_on:
+      - db
+      - vireo
   vireo:
     build:
       context: .
@@ -14,7 +28,6 @@ services:
     networks:
       - vireo
     ports:
-      - 80:80
       - 9000:9000
     depends_on:
       - db
