@@ -3,6 +3,14 @@
 Containerized Vireo 3 Application for running in Docker or Kubernetes environment.
 
 
+Application Versions:
+- Vireo: [3.0.0](https://github.com/TexasDigitalLibrary/Vireo/releases/tag/v3.0.0)
+- Play! Framework: [play-1.3.x-1.3.0-37-g2ca9290](https://github.com/TexasDigitalLibrary/play1/releases)
+
+
+Reference: [Vireo 3.0.0 Installation](https://github.com/TexasDigitalLibrary/Vireo/wiki/3.0.0-installation)
+
+
 ```
 # Start/stop application:
 
