@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:22.04
 
 ARG PLAY_FRAMEWORK_PATH
 ARG VIREO_INSTALLATION_PATH
@@ -12,8 +12,8 @@ ENV PLAY_PATH=${PLAY_FRAMEWORK_PATH}
 ENV VIREO_PATH=${VIREO_INSTALLATION_PATH}
 ENV PATH="$PATH:${PLAY_FRAMEWORK_PATH}"
 
-COPY ./vireo /opt/vireo
-COPY ./play /play
+COPY ./vireo ${VIREO_INSTALLATION_PATH}
+COPY ./play ${PLAY_FRAMEWORK_PATH}
 COPY ./vireo.entrypoint.sh /usr/bin/entrypoint.sh
 
 RUN apt-get update -y && \

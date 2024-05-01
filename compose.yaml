@@ -33,8 +33,6 @@ services:
       - db
     environment:
       PATH: "$PATH:${PLAY_FRAMEWORK_PATH}"
-    volumes:
-      - vireo-data:/vireo
   db:
     build:
       context: .
@@ -57,6 +55,4 @@ networks:
 
 volumes:
   pgdata:
-    driver: local
-  vireo-data:
     driver: local
