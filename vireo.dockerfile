@@ -12,7 +12,7 @@ ENV PLAY_PATH=${PLAY_FRAMEWORK_PATH}
 ENV VIREO_PATH=${VIREO_INSTALLATION_PATH}
 ENV PATH="$PATH:${PLAY_FRAMEWORK_PATH}"
 
-COPY ./vireo /vireo
+COPY ./vireo /opt/vireo
 COPY ./play /play
 COPY ./vireo.entrypoint.sh /usr/bin/entrypoint.sh
 

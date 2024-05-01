@@ -46,6 +46,12 @@ docker exec -it dissertation-apache bash
 BUILDKIT_PROGRESS=plain docker compose build vireo --no-cache 2>&1 | tee vireo-build.log
 BUILDKIT_PROGRESS=plain docker compose build db --no-cache 2>&1 | tee db-build.log
 BUILDKIT_PROGRESS=plain docker compose build apache --no-cache 2>&1 | tee apache-build.log
+
+
+# First startup, copy vireo's installtion files into the persisted path:
+
+cp -a /opt/vireo/* /vireo
+
 ```
 
 
